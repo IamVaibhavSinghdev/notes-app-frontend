@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes } from "react";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & { label?: string; hint?: string };
 export default function TextInput({ label, hint, className="", ...props }: Props) {

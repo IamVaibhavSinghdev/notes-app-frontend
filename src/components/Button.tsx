@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from "react";
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & { loading?: boolean };
 
 export default function Button({ className="", loading, children, ...rest }: Props) {
