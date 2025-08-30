@@ -5,7 +5,7 @@ import AuthLayout from "../components/AuthLayout";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 import api from "../lib/api";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+ import.meta.env.VITE_API_BASE_URL;
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
