@@ -19,7 +19,7 @@ export default function SignIn() {
     if (!email) return toast.info("Enter email");
     try {
       setLoading(true);
-      await api.post("/auth/request-otp", { email });
+      await api.post("/auth/request-otp", { email ,  purpose: "login"});
       toast.success("OTP sent");
       setOtpSent(true);
     } catch (err: any) {
