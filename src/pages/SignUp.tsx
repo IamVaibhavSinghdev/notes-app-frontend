@@ -21,7 +21,7 @@ export default function SignUp() {
     if (!name || !email || !dob) return toast.info("Fill name, DOB and email");
     try {
       setLoading(true);
-      await api.post("/auth/register", { name, dob, email });
+      await api.post("/auth/request-otp", { name, dob, email });
       toast.success("OTP sent to email");
       setOtpSent(true);
     } catch (err: any) {
@@ -36,7 +36,7 @@ export default function SignUp() {
     if (!otp) return toast.info("Enter OTP");
     try {
       setLoading(true);
-      const res = await api.post("/auth/verify", { email, otp });
+      const res = await api.post("/auth/verify-otp", { email, otp });
       localStorage.setItem("token", res.data.token);
       toast.success("Account created");
       navigate("/dashboard");

@@ -19,7 +19,7 @@ export default function SignIn() {
     if (!email) return toast.info("Enter email");
     try {
       setLoading(true);
-      await api.post("/auth/login", { email });
+      await api.post("/auth/request-otp", { email });
       toast.success("OTP sent");
       setOtpSent(true);
     } catch (err: any) {
@@ -33,7 +33,7 @@ export default function SignIn() {
     if (!otp) return toast.info("Enter OTP");
     try {
       setLoading(true);
-      const res = await api.post("/auth/login/verify", { email, otp });
+      const res = await api.post("/auth/login/verify-otp", { email, otp });
       localStorage.setItem("token", res.data.token);
       remember && localStorage.setItem("rememberEmail", email);
       toast.success("Welcome back!");
