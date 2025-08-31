@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import api from "../lib/api";
 import { toast } from "react-toastify";
+import.meta.env.VITE_API_BASE_URL;
 
 type Note = { _id: string; title: string; };
 
@@ -13,7 +14,7 @@ export default function Dashboard() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await api.get("/notes");
+        const res = await api.get("/api/notes");
         setNotes(res.data);
       } catch {
         toast.error("Please login again");
@@ -26,7 +27,7 @@ export default function Dashboard() {
     const title = prompt("Note title?");
     if (!title) return;
     try {
-      const res = await api.post("/notes", { title });
+      const res = await api.post("/api/notes", { title });
       setNotes([...notes, res.data]);
     } catch {
       toast.error("Error creating note");
@@ -35,7 +36,7 @@ export default function Dashboard() {
 
   const handleDelete = async (id: string) => {
     try {
-      await api.delete(`/notes/${id}`);
+      await api.delete(`/api/notes/${id}`);
       setNotes(notes.filter(n => n._id !== id));
     } catch {
       toast.error("Error deleting note");
