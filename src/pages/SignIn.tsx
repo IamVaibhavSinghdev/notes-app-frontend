@@ -33,7 +33,8 @@ export default function SignIn() {
     if (!otp) return toast.info("Enter OTP");
     try {
       setLoading(true);
-      const res = await api.post("/auth/login/verify-otp", { email, otp });
+      const res = await api.post("/auth/verify-otp", { email, otp, purpose: "login" });
+      
       localStorage.setItem("token", res.data.token);
       remember && localStorage.setItem("rememberEmail", email);
       toast.success("Welcome back!");
