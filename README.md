@@ -22,7 +22,7 @@ postcss.config.js tsconfig.json vite.config.ts
 ■■ Setup
 1. Create app: npm create vite@latest notes-frontend -- --template react-ts cd notes-frontend npm i 2.
 Install libraries: npm i react-router-dom axios react-toastify npm i -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p 3. Add .env: VITE_API_BASE_URL=https://notes-backend.onrender.com
+npx tailwindcss init -p 3. Add .env: VITE_API_BASE_URL=https://notes-app-itxg.onrender.com
 ■ API Client
 Axios instance in src/lib/api.ts attaches JWT automatically via interceptors.
 ■ Pages & Backend Integration
@@ -31,7 +31,7 @@ Axios instance in src/lib/api.ts attaches JWT automatically via interceptors.
 • Dashboard: /notes (GET, POST, DELETE) with JWT protection
 ■ Deploy
 Netlify: - Build Command: npm run build - Publish Directory: dist - Env Var:
-VITE_API_BASE_URL=https://notes-backend.onrender.com Vercel: - Framework: Vite + React - Build
+VITE_API_BASE_URL=https://notes-app-itxg.onrender.com Vercel: - Framework: Vite + React - Build
 Command: npm run build - Output Directory: dist - Env Var:
 VITE_API_BASE_URL=https://notes-app-itxg.onrender.com
 ■ Security Notes
